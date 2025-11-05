@@ -1,0 +1,128 @@
+{
+	// ------- COMANDOS POLARS -------
+	"Comando Polars cnpj_int": {
+		"scope": "python",
+		"prefix": "cmd polars cnpj_int",
+		"body": [
+			"df = df.with_columns(pl.col('cnpj').str.replace_all(r'\\D', '').pipe(lambda s: pl.when(s == '').then(None).otherwise(s)).cast(pl.Int64).alias('cnpj_int'))"
+		],
+		"description": "Converte CNPJ Original alfanumérico para somente números"
+	},
+	"Comando Polars str to datetime": {
+		"scope": "python",
+		"prefix": "cmd polars str to datetime",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').str.strptime(dtype=pl.Datetime, format='%Y-%m-%d %H:%M:%S', strict=False).alias('datetime_convertido'))"
+		],
+		"description": "Converte str para datetime"
+	},
+	"Comando Polars str to date": {
+		"scope": "python",
+		"prefix": "cmd polars str to date",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').str.strptime(dtype=pl.Date, format='%Y-%m-%d', strict=False).alias('date_convertido'))"
+		],
+		"description": "Converte str para date"
+	},
+	"Comando Polars str to time": {
+		"scope": "python",
+		"prefix": "cmd polars str to time",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').str.strptime(dtype=pl.Time, format='%H:%M:%S', strict=False).alias('time_convertido'))"
+		],
+		"description": "Converte str para time"
+	},
+	"Comando Polars date to datetime": {
+		"scope": "python",
+		"prefix": "cmd polars date to datetime",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').cast(pl.Datetime).alias('datetime_convertido'))"
+		],
+		"description": "Converte date para datetime"
+	},
+	"Comando Polars datetime to date": {
+		"scope": "python",
+		"prefix": "cmd polars datetime to date",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').cast(pl.Date).alias('date_convertido'))"
+		],
+		"description": "Converte datetime para date"
+	},
+	"Comando Polars datetime to time": {
+		"scope": "python",
+		"prefix": "cmd polars datetime to time",
+		"body": [
+			"df = df.with_columns(pl.col('coluna_datetime').cast(pl.Time).alias('time_convertido'))"
+		],
+		"description": "Converte datetime para time"
+	},
+	"Abre Conn POLARS": {
+		"scope": "python",
+		"prefix": "cmd polars abre con",
+		"body": [
+			"# Baixa base do banco",
+			"import polars as pl",
+			"from db_manager import Postgresql, connection_string_prd_psql",
+			"",
+			"query = \"\"\" \"\"\"",
+			"",
+			"# Select",
+			"df = pl.read_database_uri(",
+			"    query=query,",
+			"    uri=connection_string_prd_psql(),",
+			"    engine='connectorx',",
+			")",
+			"",			
+			"# Insert",			
+			"engine = Postgresql()",
+			"parametros = ('valor1', 'valor2')",
+			"query = text(f\"\"\"",
+			"	insert into schema.tabela",
+			"	(campo1, campo2)",
+			"	values",
+			"	(:campo1, :campo2)",
+			"\"\"\")",
+			"with engine.begin() as conn:",
+			"	conn.execute(query, parametros)"
+		],
+		"description": "Abre conexão com o banco usando o engine escolhido"
+	},
+	// ------- COMANDOS CONEXÃO COM BANCO USANDO PANDAS -------
+	"Abre Conn PANDAS": {
+		"scope": "python",
+		"prefix": "cmd pandas abre con get",
+		"body": [
+			"from db_manager import Database",
+			"import duckdb",
+			"import pandas as pd",
+			"from sqlalchemy import text",
+			"",
+			"db = Database()",
+			"pato = duckdb.connect()",
+			"engine = db.Postgresql()",
+			"engine_p_dev = db.PostgresqlDev()",
+			"engine_m = db.MySQL()",
+			"engine_s = db.SQLServer()",
+			"with engine.connect() as conn:",
+			"    query = \"\"\"\"\"\"",
+			"    df = pd.read_sql(query, conn)",
+			"with engine.begin() as conn:",
+			"    conn.execute(text(f\"\"\"",
+			"\"\"\"))",
+			"$0"
+		],
+		"description": "Abre conexão com o banco usando o engine escolhido"
+	},
+	// ------- COMANDOS MARKDOWN
+	"Markdown Estudo": {
+		"scope": "markdown",
+		"prefix": "titulo",
+		"body": [
+			"<span style=\"background-color: ${1:#ffffff ou #ccff00}; color:black; font-weight:bold; font-size: ${2:24 ou 40}px;\">",
+			"${3:Texto}",
+			"</span>",
+			"$0"
+		],
+		"description": "Bloco de descrição para início de célula no estudo"
+	}
+}
