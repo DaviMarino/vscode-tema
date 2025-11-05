@@ -1,0 +1,44 @@
+{
+    "workbench.colorTheme": "GitHub Dark Default",
+    "editor.tokenColorCustomizations": {
+        "variables": "#fff", // Cor da fonte das variáveis
+        "functions": "#27ae60", // Cor das fontes das funções
+        "keywords": "#3464ff", // Cor das palavras reservadas
+        "numbers": "#ff7cc4", // Cor dos números
+        "strings": "#f6ef7f", // Cor dos textos
+        "comments": "#944",
+        "textMateRules": [
+            {
+                "scope": "keyword.operator",
+                "settings": {
+                    "foreground": "#acf"
+                }
+            },
+            {
+                "scope": "entity.name.namespace",
+                "settings": {
+                    "foreground": "#61AFEF" // <-- Mude para a cor que você deseja
+                }
+            },
+            {
+                "scope": "entity.name.type",
+                "settings": {
+                    "foreground": "#25ddfd" // <-- Mude para a cor que você deseja
+                }
+            },
+            {
+                "scope": "keyword.other",
+                "settings": {
+                    "foreground": "#61AFEF" // <-- Mude para a cor que você deseja
+                }
+            },
+            {
+                "scope": "keyword.other.sql",
+                "settings": {
+                    "foreground": "#25ddfd" // <-- Mude para a cor que você deseja
+                }
+            },
+        ],
+    },
+    "python.defaultInterpreterPath": "c:\\Python313\\python.exe"
+}
