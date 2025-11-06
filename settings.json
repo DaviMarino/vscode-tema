@@ -40,5 +40,7 @@
             },
         ],
     },
-    "python.defaultInterpreterPath": "c:\\Python313\\python.exe"
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "editor.minimap.renderCharacters": false,
 }
