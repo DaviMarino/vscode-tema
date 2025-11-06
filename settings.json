@@ -2,7 +2,7 @@
     "editor.fontSize": 14,
     "workbench.colorTheme": "GitHub Dark Default",
     "editor.tokenColorCustomizations": {
-        "variables": "#fff", // Cor da fonte das variáveis
+        "variables": "#557", // Cor da fonte das variáveis
         "functions": "#27ae60", // Cor das fontes das funções
         "keywords": "#3464ff", // Cor das palavras reservadas
         "numbers": "#ff7cc4", // Cor dos números
@@ -42,7 +42,7 @@
             {
                 "scope": "variable.other",
                 "settings": {
-                    "foreground": "#c7d6db" // <-- Mude para a cor que você deseja
+                    "foreground": "#789" // <-- Mude para a cor que você deseja
                 }
             },
             {
@@ -103,4 +103,7 @@
     "autoDocstring.includeExtendedSummary": true,
     "autoDocstring.includeName": true,
     "autoDocstring.startOnNewLine": true,
+    "github.copilot.enable": {
+        "*": false
+    },
 }
