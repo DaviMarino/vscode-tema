@@ -1,4 +1,5 @@
 {
+    "editor.fontSize": 14,
     "workbench.colorTheme": "GitHub Dark Default",
     "editor.tokenColorCustomizations": {
         "variables": "#fff", // Cor da fonte das variáveis
@@ -43,4 +44,51 @@
     "workbench.iconTheme": "material-icon-theme",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "editor.minimap.renderCharacters": false,
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "NOTA",
+        "REVISAR",
+        "EXCLUIR"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "foreground": "#000",
+        "background": "#fff"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "NOTA": {
+            "type": "line",
+            "foreground": "#000",
+            "background": "#944", // "#ffd718",
+            "iconColour": "#944",
+            "icon": "note",
+            "gutterIcon": true,
+            "opacity": 90
+        },
+        "REVISAR": {
+            "type": "text",
+            "foreground": "#014ba0",
+            "background": "#53d4ff",
+            "iconColour": "#53d4ff",
+            "icon": "info",
+            "gutterIcon": true,
+            "opacity": 90
+        },
+        "EXCLUIR": {
+            "type": "text",
+            "foreground": "#450000",
+            "background": "#ec7356",
+            "iconColour": "#f00",
+            "icon": "trash",
+            "gutterIcon": true,
+            "opacity": 90
+        }
+    },
+    "remote.SSH.remotePlatform": {
+        "ec2-labs": "linux"
+    },
+    "autoDocstring.docstringFormat": "numpy",
+    "autoDocstring.includeExtendedSummary": true,
+    "autoDocstring.includeName": true,
+    "autoDocstring.startOnNewLine": true,
 }
