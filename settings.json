@@ -39,10 +39,22 @@
                     "foreground": "#25ddfd" // <-- Mude para a cor que você deseja
                 }
             },
+            {
+                "scope": "variable.other",
+                "settings": {
+                    "foreground": "#c7d6db" // <-- Mude para a cor que você deseja
+                }
+            },
+            {
+                "scope": "variable.parameter",
+                "settings": {
+                    "foreground": "#c176ff" // <-- Mude para a cor que você deseja
+                }
+            },
         ],
     },
     "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "editor.minimap.renderCharacters": false,
     "todo-tree.general.tags": [
         "TODO",
