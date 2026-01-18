@@ -54,7 +54,7 @@
         ],
     },
     "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "editor.minimap.renderCharacters": false,
     "todo-tree.general.tags": [
         "TODO",
@@ -106,4 +106,10 @@
     "github.copilot.enable": {
         "*": false
     },
+    "editor.minimap.enabled": false,
+    "notebook.lineNumbers": "on",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.startupEditor": "none",
 }
