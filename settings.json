@@ -106,10 +106,44 @@
     "github.copilot.enable": {
         "*": false
     },
+    "jupyter.experiments.enabled": false,
     "editor.minimap.enabled": false,
     "notebook.lineNumbers": "on",
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "workbench.startupEditor": "none",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "dbcode.connections": [
+        {
+            "connectionId": "1BJZnUzHtYGbSSxaEeAHx",
+            "name": "Rsys",
+            "driver": "mssql",
+            "color": "#F33246",
+            "connectionType": "host",
+            "host": "186.224.101.156",
+            "port": 1515,
+            "ssl": false,
+            "driverOptions": {
+                "authType": "sql"
+            },
+            "username": "BaseDistribuidoraConsulta",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "ErpWebBaseDistribuidora",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0"
+        }
+    ],
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#F33246",
+        "tab.unfocusedActiveBorder": "#ff000000"
+    },
+    "dbcode.resultLocation": "panel",
+    "indentRainbow.colors": [
+        "rgba(0, 0, 255, 0.07)",
+        "rgba(0, 180, 255, 0.07)",
+    ]
 }
