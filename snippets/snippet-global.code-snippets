@@ -1,5 +1,49 @@
 {
 	// ------- COMANDOS POLARS -------
+	"Comando Polars pivot": {
+		"scope": "python",
+		"prefix": "cmd polars pivot",
+		"body": [
+			"df.pivot(",
+			"    on='produto', # Colunas",
+			"    index='id_usuario', # Linhas",
+			"    aggregate_function='len' # Agregação",
+			")"
+		],
+		"description": "Pivotar uma tabela vertical para horizontal"
+	},
+	"Comando Polars all rows": {
+		"scope": "python",
+		"prefix": "cmd polars all rows",
+		"body": [
+			"with pl.Config(tbl_rows=-1, tbl_cols=-1, set_tbl_width_chars=200):",
+			"    display(",
+			"        df",
+			"    )"
+		],
+		"description": "Exibir todas as linhas do polars"
+	},
+	"Comando Polars Describe": {
+		"scope": "python",
+		"prefix": "cmd polars describe",
+		"body": [
+			"from davi_core import cmd_polars_describe_extended",
+			"import polars as pl",
+			"",
+			"with pl.Config(tbl_rows=-1, tbl_cols=-1, set_tbl_width_chars=200):",
+			"    display(cmd_polars_describe_extended(df_usr_oficina))"
+		],
+		"description": "Modelo de insert no PostgreSQL"
+	},
+	"Comando Polars ler csv": {
+		"scope": "python",
+		"prefix": "cmd polars ler csv",
+		"body": [
+			"from davi_core import cmd_polars_ler_csv",
+			"df = cmd_polars_ler_csv(r'caminho/arquivo.csv', delimitador=',', decimal=',')"
+		],
+		"description": "Faz a leitura de arquivo CSV UTF-8"
+	},
 	"Comando Polars cnpj_int": {
 		"scope": "python",
 		"prefix": "cmd polars cnpj_int",
@@ -15,6 +59,16 @@
 			"df = df.with_columns(pl.col('coluna_datetime').str.strptime(dtype=pl.Datetime, format='%Y-%m-%d %H:%M:%S', strict=False).alias('datetime_convertido'))"
 		],
 		"description": "Converte str para datetime"
+	},
+	"Comando Polars date format": {
+		"scope": "python",
+		"prefix": "cmd polars date format",
+		"body": [
+			"df.with_columns(",
+			"    (pl.col(\"dt\").dt.strftime(\"%Y-%m\")).alias(\"ano_mes\")",
+			")"
+		],
+		"description": "Formatar a data"
 	},
 	"Comando Polars str to date": {
 		"scope": "python",
@@ -56,73 +110,116 @@
 		],
 		"description": "Converte datetime para time"
 	},
-	"Abre Conn POLARS": {
+	"Abre Conn get POLARS": {
 		"scope": "python",
-		"prefix": "cmd polars abre con",
+		"prefix": "cmd polars abre con get",
 		"body": [
-			"# Baixa base do banco",
 			"import polars as pl",
-			"from db_manager import Postgresql, connection_string_prd_psql",
+			"from davi_core import connection_string_azure_synapse",
 			"",
-			"query = \"\"\" \"\"\"",
+			"query = \"\"\"select * from schema.tabela \"\"\" ",
 			"",
-			"# Select",
 			"df = pl.read_database_uri(",
 			"    query=query,",
-			"    uri=connection_string_prd_psql(),",
+			"    uri=connection_string_azure_synapse(),",
 			"    engine='connectorx',",
 			")",
-			"",			
-			"# Insert",			
-			"engine = Postgresql()",
-			"parametros = ('valor1', 'valor2')",
-			"query = text(f\"\"\"",
-			"	insert into schema.tabela",
-			"	(campo1, campo2)",
-			"	values",
-			"	(:campo1, :campo2)",
-			"\"\"\")",
-			"with engine.begin() as conn:",
-			"	conn.execute(query, parametros)"
 		],
 		"description": "Abre conexão com o banco usando o engine escolhido"
 	},
-	// ------- COMANDOS CONEXÃO COM BANCO USANDO PANDAS -------
-	"Abre Conn PANDAS": {
+	"Abre Conn crud POLARS": {
 		"scope": "python",
-		"prefix": "cmd pandas abre con get",
+		"prefix": "cmd polars abre con crud",
 		"body": [
-			"from db_manager import Database",
-			"import duckdb",
-			"import pandas as pd",
+			"import polars as pl",
+			"from davi_core import Synapse",
 			"from sqlalchemy import text",
 			"",
-			"db = Database()",
-			"pato = duckdb.connect()",
-			"engine = db.Postgresql()",
-			"engine_p_dev = db.PostgresqlDev()",
-			"engine_m = db.MySQL()",
-			"engine_s = db.SQLServer()",
-			"with engine.connect() as conn:",
-			"    query = \"\"\"\"\"\"",
-			"    df = pd.read_sql(query, conn)",
+			"engine = Synapse()",
+			"parametros = ('valor1', 'valor2') ",
+			"query = text(f\"\"\" ",
+			"    insert into schema.tabela ",
+			"    (campo1, campo2) ",
+			"    values ",
+			"    (:campo1, :campo2)",
+			"\"\"\")",
 			"with engine.begin() as conn:",
-			"    conn.execute(text(f\"\"\"",
-			"\"\"\"))",
-			"$0"
+			"    conn.execute(query, parametros)"
 		],
 		"description": "Abre conexão com o banco usando o engine escolhido"
 	},
 	// ------- COMANDOS MARKDOWN
-	"Markdown Estudo": {
-		"scope": "markdown",
-		"prefix": "titulo",
+	"Tabela Dinâmica": {
+		"prefix": "cmd md tabela",
 		"body": [
-			"<span style=\"background-color: ${1:#ffffff ou #ccff00}; color:black; font-weight:bold; font-size: ${2:24 ou 40}px;\">",
-			"${3:Texto}",
-			"</span>",
+			"| ${1:Coluna 1} | ${2:Coluna 2} | ${3:Coluna 3} |",
+			"| :--- | :--- | :--- |",
+			"| ${4:Dado 1} | ${5:Dado 2} | ${6:Dado 3} |",
 			"$0"
 		],
-		"description": "Bloco de descrição para início de célula no estudo"
+		"description": "Cria uma estrutura de tabela com 3 colunas"
+	},
+	"Collapse/Dropdown HTML": {
+		"prefix": "cmd md collapse",
+		"body": [
+			"<details>",
+			"  <summary>${1:Clique para expandir}</summary>",
+			"",
+			"  ${2:Insira o conteúdo aqui (pode ser código ou texto)}",
+			"",
+			"</details>",
+			"$0"
+		],
+		"description": "Cria um bloco retrátil (HTML Details)"
+	},
+	"Bloco de Código Python com Escape": {
+		"prefix": "cmd md code",
+		"body": [
+			"\\`\\`\\`python",
+			"$1",
+			"\\`\\`\\`",
+			"$0"
+		],
+		"description": "Insere bloco de código Python formatado"
+	},
+	"Alert Info": {
+		"prefix": "cmd md bloco info",
+		"body": [
+		"> [!NOTE] titulo",
+		"> texto"
+		],
+		"description": "Bloco de nota informativa (Azul)"
+	},
+	"Alert Success": {
+		"prefix": "cmd md bloco success",
+		"body": [
+		"> [!TIP] titulo",
+		"> texto"
+		],
+		"description": "Bloco de sucesso/dica (Verde)"
+	},
+	"Alert Warning": {
+		"prefix": "cmd md bloco warning",
+		"body": [
+		"> [!WARNING] titulo",
+		"> texto"
+		],
+		"description": "Bloco de aviso/atenção (Laranja)"
+	},
+	"Alert Danger": {
+		"prefix": "cmd md bloco caution",
+		"body": [
+		"> [!CAUTION] titulo",
+		"> texto"
+		],
+		"description": "Bloco de perigo/erro (Vermelho)"
+	},
+	"Alert Important": {
+		"prefix": "cmd md bloco important",
+		"body": [
+		"> [!IMPORTANT] titulo",
+		"> texto"
+		],
+		"description": "Bloco de perigo/erro (Vermelho)"
 	}
 }
