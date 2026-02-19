@@ -148,8 +148,8 @@
     ],
     "markdown-pdf.headerTemplate": "<div style='font-size: 9px; margin: 0 auto; color: #8b949e;'>Documento Gerado via VS Code by Davi Marino</div>",
     "markdown-pdf.footerTemplate": "<div style='font-size: 9px; margin: 0 auto; color: #8b949e;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>",
-    "markdown-pdf.highlightStyle": "atom-one-dark.css",
+    "markdown-pdf.highlightStyle": "obsidian.css",
     "markdown-pdf.styles": [
-        "C:/Git/VSCODE/markdown-pdf.css"
+        "https://cdn.jsdelivr.net/gh/DaviMarino/vscode-tema/markdown-pdf.css"
     ]
 }
