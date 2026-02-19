@@ -1,61 +1,74 @@
-/* Forçar o fundo escuro no corpo e no HTML */
-/* Ataca o fundo da página e do container que a extensão cria */
+/* Força o fundo escuro total */
 html, body, .vscode-body {
     background-color: #0d1117 !important;
     color: #c9d1d9 !important;
+    margin: 0;
+    padding: 20px !important;
 }
 
-/* Força o fundo escuro em TODA a área de renderização */
-body {
-    background: #0d1117 !important;
-}
-
-/* Ajusta o highlight que você viu que ficou claro no print */
-.hljs {
-    background: #161b22 !important;
-    color: #d2a8ff !important; /* Cor de destaque para teste */
-    border: 1px solid #30363d !important;
-}
-
-/* Se as tabelas (importantes para seus projetos de Data Science) sumirem: */
-table th, table td {
-    border: 1px solid #30363d !important;
-    background: #0d1117 !important;
-}
-
-/* Ajuste de títulos */
-h1, h2, h3, h4, h5, h6 {
+/* Estilo de títulos GitHub Dark */
+h1, h2, h3, h4 {
     color: #f0f6f2 !important;
-    border-bottom: 1px solid #21262d !important;
+    border-bottom: 1px solid #30363d !important;
+    padding-bottom: 8px !important;
 }
 
-/* Blocos de código - O fundo deve ser mais escuro que o body */
+/* Blocos de código (Highlighting) */
 pre, .hljs {
     background-color: #161b22 !important;
     border: 1px solid #30363d !important;
-    color: #e6edf3 !important;
-}
-
-/* Syntax Highlighting estilo GitHub Dark */
-.hljs-keyword, .hljs-operator { color: #ff7b72 !important; }
-.hljs-title, .hljs-section { color: #d2a8ff !important; }
-.hljs-string { color: #a5d6ff !important; }
-.hljs-comment { color: #8b949e !important; }
-.hljs-number { color: #79c0ff !important; }
-.hljs-variable { color: #ffa657 !important; }
-.hljs-built_in { color: #ffa657 !important; }
-
-/* Inline code `exemplo` */
-:not(pre) > code {
-    background-color: rgba(110, 118, 129, 0.4) !important;
-    color: #e6edf3 !important;
-    padding: 0.2em 0.4em !important;
     border-radius: 6px !important;
+    color: #e6edf3 !important;
 }
 
-/* Linhas horizontais */
-hr {
-    background-color: #30363d !important;
-    height: 0.25em !important;
-    border: 0 !important;
+/* Tabelas (Essencial para Data Science) */
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #30363d !important; padding: 8px; }
+th { background-color: #161b22; }
+
+
+/* Container de Código */
+pre.hljs, .hljs {
+    background: #0d1117 !important; /* Cor de fundo do seu editor */
+    color: #789 !important;        /* Sua 'variable.other' */
+}
+
+/* Palavras Reservadas (Keywords) */
+.hljs-keyword, .hljs-selector-tag, .hljs-doctag {
+    color: #3464ff !important;
+}
+
+/* Funções */
+.hljs-function, .hljs-title.function_, .hljs-title {
+    color: #27ae60 !important;
+}
+
+/* Números */
+.hljs-number, .hljs-literal {
+    color: #ff7cc4 !important;
+}
+
+/* Strings (Textos) */
+.hljs-string, .hljs-meta .hljs-string {
+    color: #f6ef7f !important;
+}
+
+/* Comentários */
+.hljs-comment, .hljs-quote {
+    color: #944 !important;
+}
+
+/* Operadores e Pontuação */
+.hljs-operator, .hljs-punctuation {
+    color: #acf !important;
+}
+
+/* Tipos, Classes e Namespaces */
+.hljs-type, .hljs-class .hljs-title, .hljs-built_in {
+    color: #25ddfd !important;
+}
+
+/* Parâmetros de Variáveis */
+.hljs-params, .hljs-variable {
+    color: #c176ff !important;
 }
