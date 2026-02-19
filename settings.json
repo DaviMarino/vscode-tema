@@ -145,5 +145,11 @@
     "indentRainbow.colors": [
         "rgba(0, 0, 255, 0.07)",
         "rgba(0, 180, 255, 0.07)",
+    ],
+    "markdown-pdf.headerTemplate": "<div style='font-size: 9px; margin: 0 auto; color: #8b949e;'>Documento Gerado via VS Code by Davi Marino</div>",
+    "markdown-pdf.footerTemplate": "<div style='font-size: 9px; margin: 0 auto; color: #8b949e;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>",
+    "markdown-pdf.highlightStyle": "atom-one-dark.css",
+    "markdown-pdf.styles": [
+        "C:/Git/VSCODE/markdown-pdf.css"
     ]
 }
