@@ -1,50 +1,61 @@
+/* Forçar o fundo escuro no corpo e no HTML */
+/* Ataca o fundo da página e do container que a extensão cria */
+html, body, .vscode-body {
+    background-color: #0d1117 !important;
+    color: #c9d1d9 !important;
+}
+
+/* Força o fundo escuro em TODA a área de renderização */
 body {
-  background: #0d1117 !important;
-  color: #c9d1d9 !important;
-  font-family: 'Segoe UI', 'Liberation Sans', Arial, sans-serif !important;
+    background: #0d1117 !important;
 }
-body h1, body h2, body h3, body h4, body h5, body h6 {
-  color: #58a6ff !important;
+
+/* Ajusta o highlight que você viu que ficou claro no print */
+.hljs {
+    background: #161b22 !important;
+    color: #d2a8ff !important; /* Cor de destaque para teste */
+    border: 1px solid #30363d !important;
 }
-body a {
-  color: #58a6ff !important;
+
+/* Se as tabelas (importantes para seus projetos de Data Science) sumirem: */
+table th, table td {
+    border: 1px solid #30363d !important;
+    background: #0d1117 !important;
 }
-body code, body pre {
-  background: #161b22 !important;
-  color: #8b949e !important;
-  border-radius: 6px !important;
+
+/* Ajuste de títulos */
+h1, h2, h3, h4, h5, h6 {
+    color: #f0f6f2 !important;
+    border-bottom: 1px solid #21262d !important;
 }
-body pre {
-  padding: 16px !important;
+
+/* Blocos de código - O fundo deve ser mais escuro que o body */
+pre, .hljs {
+    background-color: #161b22 !important;
+    border: 1px solid #30363d !important;
+    color: #e6edf3 !important;
 }
-body blockquote {
-  border-left: 4px solid #30363d !important;
-  background: #161b22 !important;
-  color: #8b949e !important;
-  padding: 8px 16px !important;
+
+/* Syntax Highlighting estilo GitHub Dark */
+.hljs-keyword, .hljs-operator { color: #ff7b72 !important; }
+.hljs-title, .hljs-section { color: #d2a8ff !important; }
+.hljs-string { color: #a5d6ff !important; }
+.hljs-comment { color: #8b949e !important; }
+.hljs-number { color: #79c0ff !important; }
+.hljs-variable { color: #ffa657 !important; }
+.hljs-built_in { color: #ffa657 !important; }
+
+/* Inline code `exemplo` */
+:not(pre) > code {
+    background-color: rgba(110, 118, 129, 0.4) !important;
+    color: #e6edf3 !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 6px !important;
 }
-body table {
-  border-collapse: collapse !important;
-  width: 100% !important;
-  background: #161b22 !important;
-}
-body th, body td {
-  border: 1px solid #30363d !important;
-  padding: 8px !important;
-  color: #c9d1d9 !important;
-}
-body th {
-  background: #21262c !important;
-}
-body ul, body ol {
-  color: #c9d1d9 !important;
-}
-body hr {
-  border: 1px solid #30363d !important;
-}
-body img {
-  background: #161b22 !important;
-  border: 1px solid #30363d !important;
-  border-radius: 4px !important;
-  padding: 2px !important;
+
+/* Linhas horizontais */
+hr {
+    background-color: #30363d !important;
+    height: 0.25em !important;
+    border: 0 !important;
 }
